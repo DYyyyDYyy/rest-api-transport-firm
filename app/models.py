@@ -74,6 +74,7 @@ class Vehicle(Base):
     make: Mapped[str] = mapped_column(String(50))
     model: Mapped[str] = mapped_column(String(50))
     capacity_kg: Mapped[int]
+    fuel_type: Mapped[str] = mapped_column(String(20), default="diesel", server_default="diesel")
     is_available: Mapped[bool] = mapped_column(default=True, server_default="true")
     unavailable_reason: Mapped[str | None] = mapped_column(String(255))
 

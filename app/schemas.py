@@ -62,6 +62,7 @@ class VehicleBase(BaseModel):
     make: str = Field(min_length=1, max_length=50)
     model: str = Field(min_length=1, max_length=50)
     capacity_kg: int = Field(gt=0)
+    fuel_type: str = Field(default="diesel", min_length=1, max_length=20)
     is_available: bool = True
     unavailable_reason: str | None = Field(default=None, max_length=255)
 
@@ -75,6 +76,7 @@ class VehicleUpdate(BaseModel):
     make: str | None = Field(default=None, min_length=1, max_length=50)
     model: str | None = Field(default=None, min_length=1, max_length=50)
     capacity_kg: int | None = Field(default=None, gt=0)
+    fuel_type: str | None = Field(default=None, min_length=1, max_length=20)
     is_available: bool | None = None
     unavailable_reason: str | None = Field(default=None, max_length=255)
 
