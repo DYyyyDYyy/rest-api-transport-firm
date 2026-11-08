@@ -105,7 +105,7 @@
                   "value": "application/json"
                 }
               ],
-              "body": "{\n  \"name\": \"Northwind Logistics\",\n  \"phone\": \"+380442223344\",\n  \"email\": \"orders@northwind.example\",\n  \"address\": \"Kyiv, Velyka Vasylkivska 100\",\n  \"id\": 6,\n  \"created_at\": \"2026-11-08T15:51:11.098461Z\"\n}"
+              "body": "{\n  \"name\": \"Northwind Logistics\",\n  \"phone\": \"+380442223344\",\n  \"email\": \"orders@northwind.example\",\n  \"address\": \"Kyiv, Velyka Vasylkivska 100\",\n  \"id\": 8,\n  \"created_at\": \"2026-11-08T15:55:48.165781Z\"\n}"
             }
           ],
           "event": [
@@ -180,7 +180,7 @@
                   "value": "application/json"
                 }
               ],
-              "body": "[\n  {\n    \"name\": \"Fresh Market LLC\",\n    \"phone\": \"+380441234567\",\n    \"email\": \"ops@freshmarket.ua\",\n    \"address\": \"Kyiv, Khreshchatyk 22\",\n    \"id\": 1,\n    \"created_at\": \"2026-11-08T15:49:22.428732Z\"\n  },\n  {\n    \"name\": \"BuildPro\",\n    \"phone\": \"+380322223344\",\n    \"email\": \"logistics@buildpro.ua\",\n    \"address\": \"Lviv, Stryiska 108\",\n    \"id\": 2,\n    \"created_at\": \"2026-11-08T15:49:22.428732Z\"\n  },\n  {\n    \"name\": \"AgroTrade\",\n    \"phone\": \"+380482445566\",\n    \"email\": \"dispatch@agrotrade.ua\",\n    \"address\": \"Odesa, Prymorska 5\",\n    \"id\": 3,\n    \"created_at\": \"2026-11-08T15:49:22.428732Z\"\n  },\n  {\n    \"name\": \"Northwind Logistics\",\n    \"phone\": \"+380442223344\",\n    \"email\": \"orders@northwind.example\",\n    \"address\": \"Kyiv, Velyka Vasylkivska 100\",\n    \"id\": 6,\n    \"created_at\": \"2026-11-08T15:51:11.098461Z\"\n  }\n]"
+              "body": "[\n  {\n    \"name\": \"Fresh Market LLC\",\n    \"phone\": \"+380441234567\",\n    \"email\": \"ops@freshmarket.ua\",\n    \"address\": \"Kyiv, Khreshchatyk 22\",\n    \"id\": 1,\n    \"created_at\": \"2026-11-08T15:49:22.428732Z\"\n  },\n  {\n    \"name\": \"BuildPro\",\n    \"phone\": \"+380322223344\",\n    \"email\": \"logistics@buildpro.ua\",\n    \"address\": \"Lviv, Stryiska 108\",\n    \"id\": 2,\n    \"created_at\": \"2026-11-08T15:49:22.428732Z\"\n  },\n  {\n    \"name\": \"AgroTrade\",\n    \"phone\": \"+380482445566\",\n    \"email\": \"dispatch@agrotrade.ua\",\n    \"address\": \"Odesa, Prymorska 5\",\n    \"id\": 3,\n    \"created_at\": \"2026-11-08T15:49:22.428732Z\"\n  },\n  {\n    \"name\": \"Northwind Logistics\",\n    \"phone\": \"+380442223344\",\n    \"email\": \"orders@northwind.example\",\n    \"address\": \"Kyiv, Velyka Vasylkivska 100\",\n    \"id\": 8,\n    \"created_at\": \"2026-11-08T15:55:48.165781Z\"\n  }\n]"
             }
           ]
         },
@@ -226,7 +226,7 @@
                   "value": "application/json"
                 }
               ],
-              "body": "{\n  \"name\": \"Northwind Logistics\",\n  \"phone\": \"+380442223344\",\n  \"email\": \"orders@northwind.example\",\n  \"address\": \"Kyiv, Velyka Vasylkivska 100\",\n  \"id\": 6,\n  \"created_at\": \"2026-11-08T15:51:11.098461Z\"\n}"
+              "body": "{\n  \"name\": \"Northwind Logistics\",\n  \"phone\": \"+380442223344\",\n  \"email\": \"orders@northwind.example\",\n  \"address\": \"Kyiv, Velyka Vasylkivska 100\",\n  \"id\": 8,\n  \"created_at\": \"2026-11-08T15:55:48.165781Z\"\n}"
             }
           ]
         },
@@ -300,7 +300,7 @@
                   "value": "application/json"
                 }
               ],
-              "body": "{\n  \"name\": \"Northwind Logistics\",\n  \"phone\": \"+380442223399\",\n  \"email\": \"orders@northwind.example\",\n  \"address\": \"Kyiv, Velyka Vasylkivska 100\",\n  \"id\": 6,\n  \"created_at\": \"2026-11-08T15:51:11.098461Z\"\n}"
+              "body": "{\n  \"name\": \"Northwind Logistics\",\n  \"phone\": \"+380442223399\",\n  \"email\": \"orders@northwind.example\",\n  \"address\": \"Kyiv, Velyka Vasylkivska 100\",\n  \"id\": 8,\n  \"created_at\": \"2026-11-08T15:55:48.165781Z\"\n}"
             }
           ]
         },
@@ -464,7 +464,7 @@
                   "value": "application/json"
                 }
               ],
-              "body": "{\n  \"detail\": \"Failing row contains (5, null, planned, 2400.00, Refrigerated cargo, 2026-11-08 15:51:11.256999+00).\"\n}"
+              "body": "{\n  \"detail\": \"Key (id)=(8) is referenced from table \\\"orders\\\".\"\n}"
             }
           ]
         },
@@ -582,7 +582,7 @@
                   "value": "application/json"
                 }
               ],
-              "body": "{\n  \"full_name\": \"Taras Bondar\",\n  \"phone\": \"+380637778899\",\n  \"license_number\": \"KH778899\",\n  \"license_categories\": \"C,CE\",\n  \"experience_years\": 6,\n  \"id\": 5\n}"
+              "body": "{\n  \"full_name\": \"Taras Bondar\",\n  \"phone\": \"+380637778899\",\n  \"license_number\": \"KH778899\",\n  \"license_categories\": \"C,CE\",\n  \"experience_years\": 6,\n  \"id\": 6\n}"
             }
           ],
           "event": [
@@ -637,7 +637,7 @@
                   "value": "application/json"
                 }
               ],
-              "body": "[\n  {\n    \"full_name\": \"Ivan Petrenko\",\n    \"phone\": \"+380501112233\",\n    \"license_number\": \"AB123456\",\n    \"license_categories\": \"C,CE\",\n    \"experience_years\": 8,\n    \"id\": 1\n  },\n  {\n    \"full_name\": \"Olena Koval\",\n    \"phone\": \"+380509998877\",\n    \"license_number\": \"CD654321\",\n    \"license_categories\": \"B,C\",\n    \"experience_years\": 4,\n    \"id\": 2\n  },\n  {\n    \"full_name\": \"Andrii Melnyk\",\n    \"phone\": \"+380671230099\",\n    \"license_number\": \"EF112233\",\n    \"license_categories\": \"C,CE\",\n    \"experience_years\": 12,\n    \"id\": 3\n  },\n  {\n    \"full_name\": \"Taras Bondar\",\n    \"phone\": \"+380637778899\",\n    \"license_number\": \"KH778899\",\n    \"license_categories\": \"C,CE\",\n    \"experience_years\": 6,\n    \"id\": 5\n  }\n]"
+              "body": "[\n  {\n    \"full_name\": \"Ivan Petrenko\",\n    \"phone\": \"+380501112233\",\n    \"license_number\": \"AB123456\",\n    \"license_categories\": \"C,CE\",\n    \"experience_years\": 8,\n    \"id\": 1\n  },\n  {\n    \"full_name\": \"Olena Koval\",\n    \"phone\": \"+380509998877\",\n    \"license_number\": \"CD654321\",\n    \"license_categories\": \"B,C\",\n    \"experience_years\": 4,\n    \"id\": 2\n  },\n  {\n    \"full_name\": \"Andrii Melnyk\",\n    \"phone\": \"+380671230099\",\n    \"license_number\": \"EF112233\",\n    \"license_categories\": \"C,CE\",\n    \"experience_years\": 12,\n    \"id\": 3\n  },\n  {\n    \"full_name\": \"Taras Bondar\",\n    \"phone\": \"+380637778899\",\n    \"license_number\": \"KH778899\",\n    \"license_categories\": \"C,CE\",\n    \"experience_years\": 6,\n    \"id\": 6\n  }\n]"
             }
           ]
         },
@@ -683,7 +683,7 @@
                   "value": "application/json"
                 }
               ],
-              "body": "{\n  \"full_name\": \"Taras Bondar\",\n  \"phone\": \"+380637778899\",\n  \"license_number\": \"KH778899\",\n  \"license_categories\": \"C,CE\",\n  \"experience_years\": 6,\n  \"id\": 5\n}"
+              "body": "{\n  \"full_name\": \"Taras Bondar\",\n  \"phone\": \"+380637778899\",\n  \"license_number\": \"KH778899\",\n  \"license_categories\": \"C,CE\",\n  \"experience_years\": 6,\n  \"id\": 6\n}"
             }
           ]
         },
@@ -757,7 +757,7 @@
                   "value": "application/json"
                 }
               ],
-              "body": "{\n  \"full_name\": \"Taras Bondar\",\n  \"phone\": \"+380637778899\",\n  \"license_number\": \"KH778899\",\n  \"license_categories\": \"C,CE\",\n  \"experience_years\": 7,\n  \"id\": 5\n}"
+              "body": "{\n  \"full_name\": \"Taras Bondar\",\n  \"phone\": \"+380637778899\",\n  \"license_number\": \"KH778899\",\n  \"license_categories\": \"C,CE\",\n  \"experience_years\": 7,\n  \"id\": 6\n}"
             }
           ]
         },
@@ -805,7 +805,7 @@
                   "value": "application/json"
                 }
               ],
-              "body": "[\n  {\n    \"trip_id\": 4,\n    \"order_id\": 5,\n    \"origin\": \"Kyiv\",\n    \"destination\": \"Dnipro\",\n    \"planned_start\": \"2026-11-12T07:00:00Z\",\n    \"planned_end\": \"2026-11-12T16:00:00Z\",\n    \"logs\": [\n      {\n        \"trip_id\": 4,\n        \"driver_id\": 5,\n        \"actual_start\": \"2026-11-12T07:10:00Z\",\n        \"actual_end\": \"2026-11-12T16:30:00Z\",\n        \"driver_comment\": \"Roadworks on the M03, 20 min delay. Cargo delivered intact\",\n        \"id\": 4\n      }\n    ]\n  }\n]"
+              "body": "[\n  {\n    \"trip_id\": 5,\n    \"order_id\": 6,\n    \"origin\": \"Kyiv\",\n    \"destination\": \"Dnipro\",\n    \"planned_start\": \"2026-11-12T07:00:00Z\",\n    \"planned_end\": \"2026-11-12T16:00:00Z\",\n    \"logs\": [\n      {\n        \"trip_id\": 5,\n        \"driver_id\": 6,\n        \"actual_start\": \"2026-11-12T07:10:00Z\",\n        \"actual_end\": \"2026-11-12T16:30:00Z\",\n        \"driver_comment\": \"Roadworks on the M03, 20 min delay. Cargo delivered intact\",\n        \"id\": 5\n      }\n    ]\n  }\n]"
             }
           ]
         },
@@ -923,7 +923,7 @@
                   "value": "application/json"
                 }
               ],
-              "body": "{\n  \"plate_number\": \"AE7001KM\",\n  \"make\": \"Scania\",\n  \"model\": \"R450\",\n  \"capacity_kg\": 22000,\n  \"fuel_type\": \"diesel\",\n  \"is_available\": true,\n  \"unavailable_reason\": null,\n  \"id\": 6\n}"
+              "body": "{\n  \"plate_number\": \"AE7001KM\",\n  \"make\": \"Scania\",\n  \"model\": \"R450\",\n  \"capacity_kg\": 22000,\n  \"fuel_type\": \"diesel\",\n  \"is_available\": true,\n  \"unavailable_reason\": null,\n  \"id\": 7\n}"
             }
           ],
           "event": [
@@ -978,7 +978,7 @@
                   "value": "application/json"
                 }
               ],
-              "body": "[\n  {\n    \"plate_number\": \"AA1234BB\",\n    \"make\": \"MAN\",\n    \"model\": \"TGX\",\n    \"capacity_kg\": 20000,\n    \"fuel_type\": \"diesel\",\n    \"is_available\": true,\n    \"unavailable_reason\": null,\n    \"id\": 1\n  },\n  {\n    \"plate_number\": \"BC5678KT\",\n    \"make\": \"Volvo\",\n    \"model\": \"FH\",\n    \"capacity_kg\": 18000,\n    \"fuel_type\": \"diesel\",\n    \"is_available\": true,\n    \"unavailable_reason\": null,\n    \"id\": 2\n  },\n  {\n    \"plate_number\": \"KA4321IH\",\n    \"make\": \"Mercedes-Benz\",\n    \"model\": \"Sprinter\",\n    \"capacity_kg\": 1800,\n    \"fuel_type\": \"diesel\",\n    \"is_available\": true,\n    \"unavailable_reason\": null,\n    \"id\": 3\n  },\n  {\n    \"plate_number\": \"AX9090AX\",\n    \"make\": \"DAF\",\n    \"model\": \"XF\",\n    \"capacity_kg\": 19000,\n    \"fuel_type\": \"diesel\",\n    \"is_available\": false,\n    \"unavailable_reason\": \"Scheduled maintenance\",\n    \"id\": 4\n  },\n  {\n    \"plate_number\": \"AE7001KM\",\n    \"make\": \"Scania\",\n    \"model\": \"R450\",\n    \"capacity_kg\": 22000,\n    \"fuel_type\": \"diesel\",\n    \"is_available\": true,\n    \"unavailable_reason\": null,\n    \"id\": 6\n  }\n]"
+              "body": "[\n  {\n    \"plate_number\": \"AA1234BB\",\n    \"make\": \"MAN\",\n    \"model\": \"TGX\",\n    \"capacity_kg\": 20000,\n    \"fuel_type\": \"diesel\",\n    \"is_available\": true,\n    \"unavailable_reason\": null,\n    \"id\": 1\n  },\n  {\n    \"plate_number\": \"BC5678KT\",\n    \"make\": \"Volvo\",\n    \"model\": \"FH\",\n    \"capacity_kg\": 18000,\n    \"fuel_type\": \"diesel\",\n    \"is_available\": true,\n    \"unavailable_reason\": null,\n    \"id\": 2\n  },\n  {\n    \"plate_number\": \"KA4321IH\",\n    \"make\": \"Mercedes-Benz\",\n    \"model\": \"Sprinter\",\n    \"capacity_kg\": 1800,\n    \"fuel_type\": \"diesel\",\n    \"is_available\": true,\n    \"unavailable_reason\": null,\n    \"id\": 3\n  },\n  {\n    \"plate_number\": \"AX9090AX\",\n    \"make\": \"DAF\",\n    \"model\": \"XF\",\n    \"capacity_kg\": 19000,\n    \"fuel_type\": \"diesel\",\n    \"is_available\": false,\n    \"unavailable_reason\": \"Scheduled maintenance\",\n    \"id\": 4\n  },\n  {\n    \"plate_number\": \"AE7001KM\",\n    \"make\": \"Scania\",\n    \"model\": \"R450\",\n    \"capacity_kg\": 22000,\n    \"fuel_type\": \"diesel\",\n    \"is_available\": true,\n    \"unavailable_reason\": null,\n    \"id\": 7\n  }\n]"
             }
           ]
         },
@@ -1024,7 +1024,7 @@
                   "value": "application/json"
                 }
               ],
-              "body": "{\n  \"plate_number\": \"AE7001KM\",\n  \"make\": \"Scania\",\n  \"model\": \"R450\",\n  \"capacity_kg\": 22000,\n  \"fuel_type\": \"diesel\",\n  \"is_available\": true,\n  \"unavailable_reason\": null,\n  \"id\": 6\n}"
+              "body": "{\n  \"plate_number\": \"AE7001KM\",\n  \"make\": \"Scania\",\n  \"model\": \"R450\",\n  \"capacity_kg\": 22000,\n  \"fuel_type\": \"diesel\",\n  \"is_available\": true,\n  \"unavailable_reason\": null,\n  \"id\": 7\n}"
             }
           ]
         },
@@ -1098,7 +1098,7 @@
                   "value": "application/json"
                 }
               ],
-              "body": "{\n  \"plate_number\": \"AE7001KM\",\n  \"make\": \"Scania\",\n  \"model\": \"R450\",\n  \"capacity_kg\": 21500,\n  \"fuel_type\": \"diesel\",\n  \"is_available\": true,\n  \"unavailable_reason\": null,\n  \"id\": 6\n}"
+              "body": "{\n  \"plate_number\": \"AE7001KM\",\n  \"make\": \"Scania\",\n  \"model\": \"R450\",\n  \"capacity_kg\": 21500,\n  \"fuel_type\": \"diesel\",\n  \"is_available\": true,\n  \"unavailable_reason\": null,\n  \"id\": 7\n}"
             }
           ]
         },
@@ -1144,7 +1144,7 @@
                   "value": "application/json"
                 }
               ],
-              "body": "[\n  {\n    \"plate_number\": \"AA1234BB\",\n    \"make\": \"MAN\",\n    \"model\": \"TGX\",\n    \"capacity_kg\": 20000,\n    \"fuel_type\": \"diesel\",\n    \"is_available\": true,\n    \"unavailable_reason\": null,\n    \"id\": 1\n  },\n  {\n    \"plate_number\": \"KA4321IH\",\n    \"make\": \"Mercedes-Benz\",\n    \"model\": \"Sprinter\",\n    \"capacity_kg\": 1800,\n    \"fuel_type\": \"diesel\",\n    \"is_available\": true,\n    \"unavailable_reason\": null,\n    \"id\": 3\n  },\n  {\n    \"plate_number\": \"AE7001KM\",\n    \"make\": \"Scania\",\n    \"model\": \"R450\",\n    \"capacity_kg\": 21500,\n    \"fuel_type\": \"diesel\",\n    \"is_available\": true,\n    \"unavailable_reason\": null,\n    \"id\": 6\n  }\n]"
+              "body": "[\n  {\n    \"plate_number\": \"AA1234BB\",\n    \"make\": \"MAN\",\n    \"model\": \"TGX\",\n    \"capacity_kg\": 20000,\n    \"fuel_type\": \"diesel\",\n    \"is_available\": true,\n    \"unavailable_reason\": null,\n    \"id\": 1\n  },\n  {\n    \"plate_number\": \"KA4321IH\",\n    \"make\": \"Mercedes-Benz\",\n    \"model\": \"Sprinter\",\n    \"capacity_kg\": 1800,\n    \"fuel_type\": \"diesel\",\n    \"is_available\": true,\n    \"unavailable_reason\": null,\n    \"id\": 3\n  },\n  {\n    \"plate_number\": \"AE7001KM\",\n    \"make\": \"Scania\",\n    \"model\": \"R450\",\n    \"capacity_kg\": 21500,\n    \"fuel_type\": \"diesel\",\n    \"is_available\": true,\n    \"unavailable_reason\": null,\n    \"id\": 7\n  }\n]"
             }
           ]
         },
@@ -1334,7 +1334,7 @@
                   "value": "application/json"
                 }
               ],
-              "body": "{\n  \"client_id\": 6,\n  \"price\": \"2400.00\",\n  \"status\": \"new\",\n  \"notes\": \"Refrigerated cargo\",\n  \"id\": 5,\n  \"created_at\": \"2026-11-08T15:51:11.256999Z\"\n}"
+              "body": "{\n  \"client_id\": 8,\n  \"price\": \"2400.00\",\n  \"status\": \"new\",\n  \"notes\": \"Refrigerated cargo\",\n  \"id\": 6,\n  \"created_at\": \"2026-11-08T15:55:48.267772Z\"\n}"
             }
           ],
           "event": [
@@ -1401,7 +1401,7 @@
                   "value": "application/json"
                 }
               ],
-              "body": "[\n  {\n    \"client_id\": 3,\n    \"price\": \"980.00\",\n    \"status\": \"new\",\n    \"notes\": null,\n    \"id\": 3,\n    \"created_at\": \"2026-11-07T15:49:22.357428Z\"\n  },\n  {\n    \"client_id\": 6,\n    \"price\": \"2400.00\",\n    \"status\": \"new\",\n    \"notes\": \"Refrigerated cargo\",\n    \"id\": 5,\n    \"created_at\": \"2026-11-08T15:51:11.256999Z\"\n  }\n]"
+              "body": "[\n  {\n    \"client_id\": 3,\n    \"price\": \"980.00\",\n    \"status\": \"new\",\n    \"notes\": null,\n    \"id\": 3,\n    \"created_at\": \"2026-11-07T15:49:22.357428Z\"\n  },\n  {\n    \"client_id\": 8,\n    \"price\": \"2400.00\",\n    \"status\": \"new\",\n    \"notes\": \"Refrigerated cargo\",\n    \"id\": 6,\n    \"created_at\": \"2026-11-08T15:55:48.267772Z\"\n  }\n]"
             }
           ]
         },
@@ -1447,7 +1447,7 @@
                   "value": "application/json"
                 }
               ],
-              "body": "{\n  \"client_id\": 6,\n  \"price\": \"2400.00\",\n  \"status\": \"new\",\n  \"notes\": \"Refrigerated cargo\",\n  \"id\": 5,\n  \"created_at\": \"2026-11-08T15:51:11.256999Z\"\n}"
+              "body": "{\n  \"client_id\": 8,\n  \"price\": \"2400.00\",\n  \"status\": \"new\",\n  \"notes\": \"Refrigerated cargo\",\n  \"id\": 6,\n  \"created_at\": \"2026-11-08T15:55:48.267772Z\"\n}"
             }
           ]
         },
@@ -1521,7 +1521,7 @@
                   "value": "application/json"
                 }
               ],
-              "body": "{\n  \"client_id\": 6,\n  \"price\": \"2400.00\",\n  \"status\": \"planned\",\n  \"notes\": \"Refrigerated cargo\",\n  \"id\": 5,\n  \"created_at\": \"2026-11-08T15:51:11.256999Z\"\n}"
+              "body": "{\n  \"client_id\": 8,\n  \"price\": \"2400.00\",\n  \"status\": \"planned\",\n  \"notes\": \"Refrigerated cargo\",\n  \"id\": 6,\n  \"created_at\": \"2026-11-08T15:55:48.267772Z\"\n}"
             }
           ]
         },
@@ -1587,7 +1587,7 @@
                   "value": "application/json"
                 }
               ],
-              "body": "[\n  {\n    \"client_id\": 6,\n    \"price\": \"2400.00\",\n    \"status\": \"planned\",\n    \"notes\": \"Refrigerated cargo\",\n    \"id\": 5,\n    \"created_at\": \"2026-11-08T15:51:11.256999Z\"\n  }\n]"
+              "body": "[\n  {\n    \"client_id\": 8,\n    \"price\": \"2400.00\",\n    \"status\": \"planned\",\n    \"notes\": \"Refrigerated cargo\",\n    \"id\": 6,\n    \"created_at\": \"2026-11-08T15:55:48.267772Z\"\n  }\n]"
             }
           ]
         },
@@ -1777,7 +1777,7 @@
                   "value": "application/json"
                 }
               ],
-              "body": "{\n  \"origin\": \"Kyiv\",\n  \"destination\": \"Kharkiv\",\n  \"distance_km\": 480,\n  \"cargo_weight_kg\": 15000,\n  \"planned_start\": \"2026-11-12T07:00:00Z\",\n  \"planned_end\": \"2026-11-12T16:00:00Z\",\n  \"id\": 4,\n  \"order_id\": 5,\n  \"vehicle_id\": 6,\n  \"drivers\": [\n    {\n      \"full_name\": \"Taras Bondar\",\n      \"phone\": \"+380637778899\",\n      \"license_number\": \"KH778899\",\n      \"license_categories\": \"C,CE\",\n      \"experience_years\": 7,\n      \"id\": 5\n    }\n  ]\n}"
+              "body": "{\n  \"origin\": \"Kyiv\",\n  \"destination\": \"Kharkiv\",\n  \"distance_km\": 480,\n  \"cargo_weight_kg\": 15000,\n  \"planned_start\": \"2026-11-12T07:00:00Z\",\n  \"planned_end\": \"2026-11-12T16:00:00Z\",\n  \"id\": 5,\n  \"order_id\": 6,\n  \"vehicle_id\": 7,\n  \"drivers\": [\n    {\n      \"full_name\": \"Taras Bondar\",\n      \"phone\": \"+380637778899\",\n      \"license_number\": \"KH778899\",\n      \"license_categories\": \"C,CE\",\n      \"experience_years\": 7,\n      \"id\": 6\n    }\n  ]\n}"
             }
           ],
           "event": [
@@ -1832,7 +1832,7 @@
                   "value": "application/json"
                 }
               ],
-              "body": "[\n  {\n    \"origin\": \"Kyiv\",\n    \"destination\": \"Lviv\",\n    \"distance_km\": 540,\n    \"cargo_weight_kg\": 12000,\n    \"planned_start\": \"2026-10-28T15:49:22.357428Z\",\n    \"planned_end\": \"2026-10-29T00:49:22.357428Z\",\n    \"id\": 1,\n    \"order_id\": 1,\n    \"vehicle_id\": 1,\n    \"drivers\": [\n      {\n        \"full_name\": \"Ivan Petrenko\",\n        \"phone\": \"+380501112233\",\n        \"license_number\": \"AB123456\",\n        \"license_categories\": \"C,CE\",\n        \"experience_years\": 8,\n        \"id\": 1\n      }\n    ]\n  },\n  {\n    \"origin\": \"Lviv\",\n    \"destination\": \"Odesa\",\n    \"distance_km\": 790,\n    \"cargo_weight_kg\": 15000,\n    \"planned_start\": \"2026-11-08T09:49:22.357428Z\",\n    \"planned_end\": \"2026-11-08T23:49:22.357428Z\",\n    \"id\": 2,\n    \"order_id\": 2,\n    \"vehicle_id\": 2,\n    \"drivers\": [\n      {\n        \"full_name\": \"Ivan Petrenko\",\n        \"phone\": \"+380501112233\",\n        \"license_number\": \"AB123456\",\n        \"license_categories\": \"C,CE\",\n        \"experience_years\": 8,\n        \"id\": 1\n      },\n      {\n        \"full_name\": \"Andrii Melnyk\",\n        \"phone\": \"+380671230099\",\n        \"license_number\": \"EF112233\",\n        \"license_categories\": \"C,CE\",\n        \"experience_years\": 12,\n        \"id\": 3\n      }\n    ]\n  },\n  {\n    \"origin\": \"Kyiv\",\n    \"destination\": \"Kharkiv\",\n    \"distance_km\": 480,\n    \"cargo_weight_kg\": 15000,\n    \"planned_start\": \"2026-11-12T07:00:00Z\",\n    \"planned_end\": \"2026-11-12T16:00:00Z\",\n    \"id\": 4,\n    \"order_id\": 5,\n    \"vehicle_id\": 6,\n    \"drivers\": [\n      {\n        \"full_name\": \"Taras Bondar\",\n        \"phone\": \"+380637778899\",\n        \"license_number\": \"KH778899\",\n        \"license_categories\": \"C,CE\",\n        \"experience_years\": 7,\n        \"id\": 5\n      }\n    ]\n  }\n]"
+              "body": "[\n  {\n    \"origin\": \"Kyiv\",\n    \"destination\": \"Lviv\",\n    \"distance_km\": 540,\n    \"cargo_weight_kg\": 12000,\n    \"planned_start\": \"2026-10-28T15:49:22.357428Z\",\n    \"planned_end\": \"2026-10-29T00:49:22.357428Z\",\n    \"id\": 1,\n    \"order_id\": 1,\n    \"vehicle_id\": 1,\n    \"drivers\": [\n      {\n        \"full_name\": \"Ivan Petrenko\",\n        \"phone\": \"+380501112233\",\n        \"license_number\": \"AB123456\",\n        \"license_categories\": \"C,CE\",\n        \"experience_years\": 8,\n        \"id\": 1\n      }\n    ]\n  },\n  {\n    \"origin\": \"Lviv\",\n    \"destination\": \"Odesa\",\n    \"distance_km\": 790,\n    \"cargo_weight_kg\": 15000,\n    \"planned_start\": \"2026-11-08T09:49:22.357428Z\",\n    \"planned_end\": \"2026-11-08T23:49:22.357428Z\",\n    \"id\": 2,\n    \"order_id\": 2,\n    \"vehicle_id\": 2,\n    \"drivers\": [\n      {\n        \"full_name\": \"Ivan Petrenko\",\n        \"phone\": \"+380501112233\",\n        \"license_number\": \"AB123456\",\n        \"license_categories\": \"C,CE\",\n        \"experience_years\": 8,\n        \"id\": 1\n      },\n      {\n        \"full_name\": \"Andrii Melnyk\",\n        \"phone\": \"+380671230099\",\n        \"license_number\": \"EF112233\",\n        \"license_categories\": \"C,CE\",\n        \"experience_years\": 12,\n        \"id\": 3\n      }\n    ]\n  },\n  {\n    \"origin\": \"Kyiv\",\n    \"destination\": \"Kharkiv\",\n    \"distance_km\": 480,\n    \"cargo_weight_kg\": 15000,\n    \"planned_start\": \"2026-11-12T07:00:00Z\",\n    \"planned_end\": \"2026-11-12T16:00:00Z\",\n    \"id\": 5,\n    \"order_id\": 6,\n    \"vehicle_id\": 7,\n    \"drivers\": [\n      {\n        \"full_name\": \"Taras Bondar\",\n        \"phone\": \"+380637778899\",\n        \"license_number\": \"KH778899\",\n        \"license_categories\": \"C,CE\",\n        \"experience_years\": 7,\n        \"id\": 6\n      }\n    ]\n  }\n]"
             }
           ]
         },
@@ -1878,7 +1878,7 @@
                   "value": "application/json"
                 }
               ],
-              "body": "{\n  \"origin\": \"Kyiv\",\n  \"destination\": \"Kharkiv\",\n  \"distance_km\": 480,\n  \"cargo_weight_kg\": 15000,\n  \"planned_start\": \"2026-11-12T07:00:00Z\",\n  \"planned_end\": \"2026-11-12T16:00:00Z\",\n  \"id\": 4,\n  \"order_id\": 5,\n  \"vehicle_id\": 6,\n  \"drivers\": [\n    {\n      \"full_name\": \"Taras Bondar\",\n      \"phone\": \"+380637778899\",\n      \"license_number\": \"KH778899\",\n      \"license_categories\": \"C,CE\",\n      \"experience_years\": 7,\n      \"id\": 5\n    }\n  ]\n}"
+              "body": "{\n  \"origin\": \"Kyiv\",\n  \"destination\": \"Kharkiv\",\n  \"distance_km\": 480,\n  \"cargo_weight_kg\": 15000,\n  \"planned_start\": \"2026-11-12T07:00:00Z\",\n  \"planned_end\": \"2026-11-12T16:00:00Z\",\n  \"id\": 5,\n  \"order_id\": 6,\n  \"vehicle_id\": 7,\n  \"drivers\": [\n    {\n      \"full_name\": \"Taras Bondar\",\n      \"phone\": \"+380637778899\",\n      \"license_number\": \"KH778899\",\n      \"license_categories\": \"C,CE\",\n      \"experience_years\": 7,\n      \"id\": 6\n    }\n  ]\n}"
             }
           ]
         },
@@ -1952,7 +1952,7 @@
                   "value": "application/json"
                 }
               ],
-              "body": "{\n  \"origin\": \"Kyiv\",\n  \"destination\": \"Dnipro\",\n  \"distance_km\": 480,\n  \"cargo_weight_kg\": 15000,\n  \"planned_start\": \"2026-11-12T07:00:00Z\",\n  \"planned_end\": \"2026-11-12T16:00:00Z\",\n  \"id\": 4,\n  \"order_id\": 5,\n  \"vehicle_id\": 6,\n  \"drivers\": [\n    {\n      \"full_name\": \"Taras Bondar\",\n      \"phone\": \"+380637778899\",\n      \"license_number\": \"KH778899\",\n      \"license_categories\": \"C,CE\",\n      \"experience_years\": 7,\n      \"id\": 5\n    }\n  ]\n}"
+              "body": "{\n  \"origin\": \"Kyiv\",\n  \"destination\": \"Dnipro\",\n  \"distance_km\": 480,\n  \"cargo_weight_kg\": 15000,\n  \"planned_start\": \"2026-11-12T07:00:00Z\",\n  \"planned_end\": \"2026-11-12T16:00:00Z\",\n  \"id\": 5,\n  \"order_id\": 6,\n  \"vehicle_id\": 7,\n  \"drivers\": [\n    {\n      \"full_name\": \"Taras Bondar\",\n      \"phone\": \"+380637778899\",\n      \"license_number\": \"KH778899\",\n      \"license_categories\": \"C,CE\",\n      \"experience_years\": 7,\n      \"id\": 6\n    }\n  ]\n}"
             }
           ]
         },
@@ -2142,7 +2142,7 @@
                   "value": "application/json"
                 }
               ],
-              "body": "{\n  \"trip_id\": 4,\n  \"driver_id\": 5,\n  \"actual_start\": \"2026-11-12T07:10:00Z\",\n  \"actual_end\": \"2026-11-12T16:30:00Z\",\n  \"driver_comment\": \"Roadworks on the M03, 20 min delay\",\n  \"id\": 4\n}"
+              "body": "{\n  \"trip_id\": 5,\n  \"driver_id\": 6,\n  \"actual_start\": \"2026-11-12T07:10:00Z\",\n  \"actual_end\": \"2026-11-12T16:30:00Z\",\n  \"driver_comment\": \"Roadworks on the M03, 20 min delay\",\n  \"id\": 5\n}"
             }
           ],
           "event": [
@@ -2209,7 +2209,7 @@
                   "value": "application/json"
                 }
               ],
-              "body": "[\n  {\n    \"trip_id\": 4,\n    \"driver_id\": 5,\n    \"actual_start\": \"2026-11-12T07:10:00Z\",\n    \"actual_end\": \"2026-11-12T16:30:00Z\",\n    \"driver_comment\": \"Roadworks on the M03, 20 min delay\",\n    \"id\": 4\n  }\n]"
+              "body": "[\n  {\n    \"trip_id\": 5,\n    \"driver_id\": 6,\n    \"actual_start\": \"2026-11-12T07:10:00Z\",\n    \"actual_end\": \"2026-11-12T16:30:00Z\",\n    \"driver_comment\": \"Roadworks on the M03, 20 min delay\",\n    \"id\": 5\n  }\n]"
             }
           ]
         },
@@ -2255,7 +2255,7 @@
                   "value": "application/json"
                 }
               ],
-              "body": "{\n  \"trip_id\": 4,\n  \"driver_id\": 5,\n  \"actual_start\": \"2026-11-12T07:10:00Z\",\n  \"actual_end\": \"2026-11-12T16:30:00Z\",\n  \"driver_comment\": \"Roadworks on the M03, 20 min delay\",\n  \"id\": 4\n}"
+              "body": "{\n  \"trip_id\": 5,\n  \"driver_id\": 6,\n  \"actual_start\": \"2026-11-12T07:10:00Z\",\n  \"actual_end\": \"2026-11-12T16:30:00Z\",\n  \"driver_comment\": \"Roadworks on the M03, 20 min delay\",\n  \"id\": 5\n}"
             }
           ]
         },
@@ -2329,7 +2329,7 @@
                   "value": "application/json"
                 }
               ],
-              "body": "{\n  \"trip_id\": 4,\n  \"driver_id\": 5,\n  \"actual_start\": \"2026-11-12T07:10:00Z\",\n  \"actual_end\": \"2026-11-12T16:30:00Z\",\n  \"driver_comment\": \"Roadworks on the M03, 20 min delay. Cargo delivered intact\",\n  \"id\": 4\n}"
+              "body": "{\n  \"trip_id\": 5,\n  \"driver_id\": 6,\n  \"actual_start\": \"2026-11-12T07:10:00Z\",\n  \"actual_end\": \"2026-11-12T16:30:00Z\",\n  \"driver_comment\": \"Roadworks on the M03, 20 min delay. Cargo delivered intact\",\n  \"id\": 5\n}"
             }
           ]
         },
@@ -2401,7 +2401,7 @@
                   "value": "application/json"
                 }
               ],
-              "body": "{\n  \"detail\": [\n    {\n      \"type\": \"value_error\",\n      \"loc\": [\n        \"body\"\n      ],\n      \"msg\": \"Value error, actual_end must not be earlier than actual_start\",\n      \"input\": {\n        \"trip_id\": 4,\n        \"driver_id\": 5,\n        \"actual_start\": \"2026-11-12T10:00:00Z\",\n        \"actual_end\": \"2026-11-12T09:00:00Z\"\n      },\n      \"ctx\": {\n        \"error\": {}\n      }\n    }\n  ]\n}"
+              "body": "{\n  \"detail\": [\n    {\n      \"type\": \"value_error\",\n      \"loc\": [\n        \"body\"\n      ],\n      \"msg\": \"Value error, actual_end must not be earlier than actual_start\",\n      \"input\": {\n        \"trip_id\": 5,\n        \"driver_id\": 6,\n        \"actual_start\": \"2026-11-12T10:00:00Z\",\n        \"actual_end\": \"2026-11-12T09:00:00Z\"\n      },\n      \"ctx\": {\n        \"error\": {}\n      }\n    }\n  ]\n}"
             }
           ]
         },
