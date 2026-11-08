@@ -49,7 +49,7 @@ python -m scripts.seed        # optional demo data
 uvicorn app.main:app --reload
 ```
 
-Open http://localhost:8000/docs.
+Open http://localhost:8000/docs. A Postman collection with example requests and responses is in `docs/postman_collection.json`.
 
 ## Migrations
 

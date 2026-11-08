@@ -1,0 +1,2452 @@
+{
+  "info": {
+    "name": "Transport Firm API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:8000"
+    },
+    {
+      "key": "client_id",
+      "value": ""
+    },
+    {
+      "key": "driver_id",
+      "value": ""
+    },
+    {
+      "key": "vehicle_id",
+      "value": ""
+    },
+    {
+      "key": "order_id",
+      "value": ""
+    },
+    {
+      "key": "trip_id",
+      "value": ""
+    },
+    {
+      "key": "log_id",
+      "value": ""
+    }
+  ],
+  "item": [
+    {
+      "name": "Clients",
+      "item": [
+        {
+          "name": "Create client",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/clients",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "clients"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Northwind Logistics\",\n  \"phone\": \"+380442223344\",\n  \"email\": \"orders@northwind.example\",\n  \"address\": \"Kyiv, Velyka Vasylkivska 100\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "name": "201 Created",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/clients",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "clients"
+                  ]
+                },
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"Northwind Logistics\",\n  \"phone\": \"+380442223344\",\n  \"email\": \"orders@northwind.example\",\n  \"address\": \"Kyiv, Velyka Vasylkivska 100\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"name\": \"Northwind Logistics\",\n  \"phone\": \"+380442223344\",\n  \"email\": \"orders@northwind.example\",\n  \"address\": \"Kyiv, Velyka Vasylkivska 100\",\n  \"id\": 6,\n  \"created_at\": \"2026-11-08T15:51:11.098461Z\"\n}"
+            }
+          ],
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.collectionVariables.set(\"client_id\", pm.response.json().id);"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "List clients",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/clients?skip=0&limit=50",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "clients"
+              ],
+              "query": [
+                {
+                  "key": "skip",
+                  "value": "0"
+                },
+                {
+                  "key": "limit",
+                  "value": "50"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "200 OK",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/clients?skip=0&limit=50",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "clients"
+                  ],
+                  "query": [
+                    {
+                      "key": "skip",
+                      "value": "0"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "50"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"name\": \"Fresh Market LLC\",\n    \"phone\": \"+380441234567\",\n    \"email\": \"ops@freshmarket.ua\",\n    \"address\": \"Kyiv, Khreshchatyk 22\",\n    \"id\": 1,\n    \"created_at\": \"2026-11-08T15:49:22.428732Z\"\n  },\n  {\n    \"name\": \"BuildPro\",\n    \"phone\": \"+380322223344\",\n    \"email\": \"logistics@buildpro.ua\",\n    \"address\": \"Lviv, Stryiska 108\",\n    \"id\": 2,\n    \"created_at\": \"2026-11-08T15:49:22.428732Z\"\n  },\n  {\n    \"name\": \"AgroTrade\",\n    \"phone\": \"+380482445566\",\n    \"email\": \"dispatch@agrotrade.ua\",\n    \"address\": \"Odesa, Prymorska 5\",\n    \"id\": 3,\n    \"created_at\": \"2026-11-08T15:49:22.428732Z\"\n  },\n  {\n    \"name\": \"Northwind Logistics\",\n    \"phone\": \"+380442223344\",\n    \"email\": \"orders@northwind.example\",\n    \"address\": \"Kyiv, Velyka Vasylkivska 100\",\n    \"id\": 6,\n    \"created_at\": \"2026-11-08T15:51:11.098461Z\"\n  }\n]"
+            }
+          ]
+        },
+        {
+          "name": "Get client",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/clients/{{client_id}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "clients",
+                "{{client_id}}"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "200 OK",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/clients/{{client_id}}",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "clients",
+                    "{{client_id}}"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"name\": \"Northwind Logistics\",\n  \"phone\": \"+380442223344\",\n  \"email\": \"orders@northwind.example\",\n  \"address\": \"Kyiv, Velyka Vasylkivska 100\",\n  \"id\": 6,\n  \"created_at\": \"2026-11-08T15:51:11.098461Z\"\n}"
+            }
+          ]
+        },
+        {
+          "name": "Update client",
+          "request": {
+            "method": "PATCH",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/clients/{{client_id}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "clients",
+                "{{client_id}}"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"phone\": \"+380442223399\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "name": "200 OK",
+              "originalRequest": {
+                "method": "PATCH",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/clients/{{client_id}}",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "clients",
+                    "{{client_id}}"
+                  ]
+                },
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"phone\": \"+380442223399\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"name\": \"Northwind Logistics\",\n  \"phone\": \"+380442223399\",\n  \"email\": \"orders@northwind.example\",\n  \"address\": \"Kyiv, Velyka Vasylkivska 100\",\n  \"id\": 6,\n  \"created_at\": \"2026-11-08T15:51:11.098461Z\"\n}"
+            }
+          ]
+        },
+        {
+          "name": "Create client: duplicate email (409)",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/clients",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "clients"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Copy\",\n  \"phone\": \"+380440000000\",\n  \"email\": \"orders@northwind.example\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "name": "409 Conflict",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/clients",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "clients"
+                  ]
+                },
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"Copy\",\n  \"phone\": \"+380440000000\",\n  \"email\": \"orders@northwind.example\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Conflict",
+              "code": 409,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": \"Key (email)=(orders@northwind.example) already exists.\"\n}"
+            }
+          ]
+        },
+        {
+          "name": "Get client: not found (404)",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/clients/999999",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "clients",
+                "999999"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "404 Not Found",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/clients/999999",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "clients",
+                    "999999"
+                  ]
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": \"Client 999999 not found\"\n}"
+            }
+          ]
+        },
+        {
+          "name": "Delete client with orders (409)",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/clients/{{client_id}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "clients",
+                "{{client_id}}"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "409 Conflict",
+              "originalRequest": {
+                "method": "DELETE",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/clients/{{client_id}}",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "clients",
+                    "{{client_id}}"
+                  ]
+                }
+              },
+              "status": "Conflict",
+              "code": 409,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": \"Failing row contains (5, null, planned, 2400.00, Refrigerated cargo, 2026-11-08 15:51:11.256999+00).\"\n}"
+            }
+          ]
+        },
+        {
+          "name": "Delete client",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/clients/{{client_id}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "clients",
+                "{{client_id}}"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "204 No Content",
+              "originalRequest": {
+                "method": "DELETE",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/clients/{{client_id}}",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "clients",
+                    "{{client_id}}"
+                  ]
+                }
+              },
+              "status": "No Content",
+              "code": 204,
+              "_postman_previewlanguage": "json",
+              "header": [],
+              "body": ""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Drivers",
+      "item": [
+        {
+          "name": "Create driver",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/drivers",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "drivers"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"full_name\": \"Taras Bondar\",\n  \"phone\": \"+380637778899\",\n  \"license_number\": \"KH778899\",\n  \"license_categories\": \"C,CE\",\n  \"experience_years\": 6\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "name": "201 Created",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/drivers",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "drivers"
+                  ]
+                },
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"full_name\": \"Taras Bondar\",\n  \"phone\": \"+380637778899\",\n  \"license_number\": \"KH778899\",\n  \"license_categories\": \"C,CE\",\n  \"experience_years\": 6\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"full_name\": \"Taras Bondar\",\n  \"phone\": \"+380637778899\",\n  \"license_number\": \"KH778899\",\n  \"license_categories\": \"C,CE\",\n  \"experience_years\": 6,\n  \"id\": 5\n}"
+            }
+          ],
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.collectionVariables.set(\"driver_id\", pm.response.json().id);"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "List drivers",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/drivers",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "drivers"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "200 OK",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/drivers",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "drivers"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"full_name\": \"Ivan Petrenko\",\n    \"phone\": \"+380501112233\",\n    \"license_number\": \"AB123456\",\n    \"license_categories\": \"C,CE\",\n    \"experience_years\": 8,\n    \"id\": 1\n  },\n  {\n    \"full_name\": \"Olena Koval\",\n    \"phone\": \"+380509998877\",\n    \"license_number\": \"CD654321\",\n    \"license_categories\": \"B,C\",\n    \"experience_years\": 4,\n    \"id\": 2\n  },\n  {\n    \"full_name\": \"Andrii Melnyk\",\n    \"phone\": \"+380671230099\",\n    \"license_number\": \"EF112233\",\n    \"license_categories\": \"C,CE\",\n    \"experience_years\": 12,\n    \"id\": 3\n  },\n  {\n    \"full_name\": \"Taras Bondar\",\n    \"phone\": \"+380637778899\",\n    \"license_number\": \"KH778899\",\n    \"license_categories\": \"C,CE\",\n    \"experience_years\": 6,\n    \"id\": 5\n  }\n]"
+            }
+          ]
+        },
+        {
+          "name": "Get driver",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/drivers/{{driver_id}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "drivers",
+                "{{driver_id}}"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "200 OK",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/drivers/{{driver_id}}",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "drivers",
+                    "{{driver_id}}"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"full_name\": \"Taras Bondar\",\n  \"phone\": \"+380637778899\",\n  \"license_number\": \"KH778899\",\n  \"license_categories\": \"C,CE\",\n  \"experience_years\": 6,\n  \"id\": 5\n}"
+            }
+          ]
+        },
+        {
+          "name": "Update driver",
+          "request": {
+            "method": "PATCH",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/drivers/{{driver_id}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "drivers",
+                "{{driver_id}}"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"experience_years\": 7\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "name": "200 OK",
+              "originalRequest": {
+                "method": "PATCH",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/drivers/{{driver_id}}",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "drivers",
+                    "{{driver_id}}"
+                  ]
+                },
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"experience_years\": 7\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"full_name\": \"Taras Bondar\",\n  \"phone\": \"+380637778899\",\n  \"license_number\": \"KH778899\",\n  \"license_categories\": \"C,CE\",\n  \"experience_years\": 7,\n  \"id\": 5\n}"
+            }
+          ]
+        },
+        {
+          "name": "Driver trip history",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/drivers/{{driver_id}}/trips",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "drivers",
+                "{{driver_id}}",
+                "trips"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "200 OK",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/drivers/{{driver_id}}/trips",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "drivers",
+                    "{{driver_id}}",
+                    "trips"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"trip_id\": 4,\n    \"order_id\": 5,\n    \"origin\": \"Kyiv\",\n    \"destination\": \"Dnipro\",\n    \"planned_start\": \"2026-11-12T07:00:00Z\",\n    \"planned_end\": \"2026-11-12T16:00:00Z\",\n    \"logs\": [\n      {\n        \"trip_id\": 4,\n        \"driver_id\": 5,\n        \"actual_start\": \"2026-11-12T07:10:00Z\",\n        \"actual_end\": \"2026-11-12T16:30:00Z\",\n        \"driver_comment\": \"Roadworks on the M03, 20 min delay. Cargo delivered intact\",\n        \"id\": 4\n      }\n    ]\n  }\n]"
+            }
+          ]
+        },
+        {
+          "name": "Delete driver",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/drivers/{{driver_id}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "drivers",
+                "{{driver_id}}"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "204 No Content",
+              "originalRequest": {
+                "method": "DELETE",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/drivers/{{driver_id}}",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "drivers",
+                    "{{driver_id}}"
+                  ]
+                }
+              },
+              "status": "No Content",
+              "code": 204,
+              "_postman_previewlanguage": "json",
+              "header": [],
+              "body": ""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Vehicles",
+      "item": [
+        {
+          "name": "Create vehicle",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/vehicles",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "vehicles"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"plate_number\": \"AE7001KM\",\n  \"make\": \"Scania\",\n  \"model\": \"R450\",\n  \"capacity_kg\": 22000,\n  \"fuel_type\": \"diesel\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "name": "201 Created",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/vehicles",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "vehicles"
+                  ]
+                },
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"plate_number\": \"AE7001KM\",\n  \"make\": \"Scania\",\n  \"model\": \"R450\",\n  \"capacity_kg\": 22000,\n  \"fuel_type\": \"diesel\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"plate_number\": \"AE7001KM\",\n  \"make\": \"Scania\",\n  \"model\": \"R450\",\n  \"capacity_kg\": 22000,\n  \"fuel_type\": \"diesel\",\n  \"is_available\": true,\n  \"unavailable_reason\": null,\n  \"id\": 6\n}"
+            }
+          ],
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.collectionVariables.set(\"vehicle_id\", pm.response.json().id);"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "List vehicles",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/vehicles",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "vehicles"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "200 OK",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/vehicles",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "vehicles"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"plate_number\": \"AA1234BB\",\n    \"make\": \"MAN\",\n    \"model\": \"TGX\",\n    \"capacity_kg\": 20000,\n    \"fuel_type\": \"diesel\",\n    \"is_available\": true,\n    \"unavailable_reason\": null,\n    \"id\": 1\n  },\n  {\n    \"plate_number\": \"BC5678KT\",\n    \"make\": \"Volvo\",\n    \"model\": \"FH\",\n    \"capacity_kg\": 18000,\n    \"fuel_type\": \"diesel\",\n    \"is_available\": true,\n    \"unavailable_reason\": null,\n    \"id\": 2\n  },\n  {\n    \"plate_number\": \"KA4321IH\",\n    \"make\": \"Mercedes-Benz\",\n    \"model\": \"Sprinter\",\n    \"capacity_kg\": 1800,\n    \"fuel_type\": \"diesel\",\n    \"is_available\": true,\n    \"unavailable_reason\": null,\n    \"id\": 3\n  },\n  {\n    \"plate_number\": \"AX9090AX\",\n    \"make\": \"DAF\",\n    \"model\": \"XF\",\n    \"capacity_kg\": 19000,\n    \"fuel_type\": \"diesel\",\n    \"is_available\": false,\n    \"unavailable_reason\": \"Scheduled maintenance\",\n    \"id\": 4\n  },\n  {\n    \"plate_number\": \"AE7001KM\",\n    \"make\": \"Scania\",\n    \"model\": \"R450\",\n    \"capacity_kg\": 22000,\n    \"fuel_type\": \"diesel\",\n    \"is_available\": true,\n    \"unavailable_reason\": null,\n    \"id\": 6\n  }\n]"
+            }
+          ]
+        },
+        {
+          "name": "Get vehicle",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/vehicles/{{vehicle_id}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "vehicles",
+                "{{vehicle_id}}"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "200 OK",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/vehicles/{{vehicle_id}}",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "vehicles",
+                    "{{vehicle_id}}"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"plate_number\": \"AE7001KM\",\n  \"make\": \"Scania\",\n  \"model\": \"R450\",\n  \"capacity_kg\": 22000,\n  \"fuel_type\": \"diesel\",\n  \"is_available\": true,\n  \"unavailable_reason\": null,\n  \"id\": 6\n}"
+            }
+          ]
+        },
+        {
+          "name": "Update vehicle",
+          "request": {
+            "method": "PATCH",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/vehicles/{{vehicle_id}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "vehicles",
+                "{{vehicle_id}}"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"capacity_kg\": 21500\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "name": "200 OK",
+              "originalRequest": {
+                "method": "PATCH",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/vehicles/{{vehicle_id}}",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "vehicles",
+                    "{{vehicle_id}}"
+                  ]
+                },
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"capacity_kg\": 21500\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"plate_number\": \"AE7001KM\",\n  \"make\": \"Scania\",\n  \"model\": \"R450\",\n  \"capacity_kg\": 21500,\n  \"fuel_type\": \"diesel\",\n  \"is_available\": true,\n  \"unavailable_reason\": null,\n  \"id\": 6\n}"
+            }
+          ]
+        },
+        {
+          "name": "Available vehicles",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/vehicles/available",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "vehicles",
+                "available"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "200 OK",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/vehicles/available",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "vehicles",
+                    "available"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"plate_number\": \"AA1234BB\",\n    \"make\": \"MAN\",\n    \"model\": \"TGX\",\n    \"capacity_kg\": 20000,\n    \"fuel_type\": \"diesel\",\n    \"is_available\": true,\n    \"unavailable_reason\": null,\n    \"id\": 1\n  },\n  {\n    \"plate_number\": \"KA4321IH\",\n    \"make\": \"Mercedes-Benz\",\n    \"model\": \"Sprinter\",\n    \"capacity_kg\": 1800,\n    \"fuel_type\": \"diesel\",\n    \"is_available\": true,\n    \"unavailable_reason\": null,\n    \"id\": 3\n  },\n  {\n    \"plate_number\": \"AE7001KM\",\n    \"make\": \"Scania\",\n    \"model\": \"R450\",\n    \"capacity_kg\": 21500,\n    \"fuel_type\": \"diesel\",\n    \"is_available\": true,\n    \"unavailable_reason\": null,\n    \"id\": 6\n  }\n]"
+            }
+          ]
+        },
+        {
+          "name": "Create vehicle: invalid capacity (422)",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/vehicles",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "vehicles"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"plate_number\": \"XX0000XX\",\n  \"make\": \"Test\",\n  \"model\": \"T\",\n  \"capacity_kg\": 0\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "name": "422 Unprocessable Content",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/vehicles",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "vehicles"
+                  ]
+                },
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"plate_number\": \"XX0000XX\",\n  \"make\": \"Test\",\n  \"model\": \"T\",\n  \"capacity_kg\": 0\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unprocessable Content",
+              "code": 422,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": [\n    {\n      \"type\": \"greater_than\",\n      \"loc\": [\n        \"body\",\n        \"capacity_kg\"\n      ],\n      \"msg\": \"Input should be greater than 0\",\n      \"input\": 0,\n      \"ctx\": {\n        \"gt\": 0\n      }\n    }\n  ]\n}"
+            }
+          ]
+        },
+        {
+          "name": "Delete vehicle",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/vehicles/{{vehicle_id}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "vehicles",
+                "{{vehicle_id}}"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "204 No Content",
+              "originalRequest": {
+                "method": "DELETE",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/vehicles/{{vehicle_id}}",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "vehicles",
+                    "{{vehicle_id}}"
+                  ]
+                }
+              },
+              "status": "No Content",
+              "code": 204,
+              "_postman_previewlanguage": "json",
+              "header": [],
+              "body": ""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Orders",
+      "item": [
+        {
+          "name": "Create order",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/orders",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "orders"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"client_id\": {{client_id}},\n  \"price\": \"2400.00\",\n  \"notes\": \"Refrigerated cargo\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "name": "201 Created",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/orders",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "orders"
+                  ]
+                },
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"client_id\": {{client_id}},\n  \"price\": \"2400.00\",\n  \"notes\": \"Refrigerated cargo\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"client_id\": 6,\n  \"price\": \"2400.00\",\n  \"status\": \"new\",\n  \"notes\": \"Refrigerated cargo\",\n  \"id\": 5,\n  \"created_at\": \"2026-11-08T15:51:11.256999Z\"\n}"
+            }
+          ],
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.collectionVariables.set(\"order_id\", pm.response.json().id);"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "List orders",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/orders?status=new",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "orders"
+              ],
+              "query": [
+                {
+                  "key": "status",
+                  "value": "new"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "200 OK",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/orders?status=new",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "orders"
+                  ],
+                  "query": [
+                    {
+                      "key": "status",
+                      "value": "new"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"client_id\": 3,\n    \"price\": \"980.00\",\n    \"status\": \"new\",\n    \"notes\": null,\n    \"id\": 3,\n    \"created_at\": \"2026-11-07T15:49:22.357428Z\"\n  },\n  {\n    \"client_id\": 6,\n    \"price\": \"2400.00\",\n    \"status\": \"new\",\n    \"notes\": \"Refrigerated cargo\",\n    \"id\": 5,\n    \"created_at\": \"2026-11-08T15:51:11.256999Z\"\n  }\n]"
+            }
+          ]
+        },
+        {
+          "name": "Get order",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/orders/{{order_id}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "orders",
+                "{{order_id}}"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "200 OK",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/orders/{{order_id}}",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "orders",
+                    "{{order_id}}"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"client_id\": 6,\n  \"price\": \"2400.00\",\n  \"status\": \"new\",\n  \"notes\": \"Refrigerated cargo\",\n  \"id\": 5,\n  \"created_at\": \"2026-11-08T15:51:11.256999Z\"\n}"
+            }
+          ]
+        },
+        {
+          "name": "Update order",
+          "request": {
+            "method": "PATCH",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/orders/{{order_id}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "orders",
+                "{{order_id}}"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"status\": \"planned\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "name": "200 OK",
+              "originalRequest": {
+                "method": "PATCH",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/orders/{{order_id}}",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "orders",
+                    "{{order_id}}"
+                  ]
+                },
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"status\": \"planned\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"client_id\": 6,\n  \"price\": \"2400.00\",\n  \"status\": \"planned\",\n  \"notes\": \"Refrigerated cargo\",\n  \"id\": 5,\n  \"created_at\": \"2026-11-08T15:51:11.256999Z\"\n}"
+            }
+          ]
+        },
+        {
+          "name": "Orders in period",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/orders/period?date_from=2026-11-08&date_to=2026-11-08",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "orders",
+                "period"
+              ],
+              "query": [
+                {
+                  "key": "date_from",
+                  "value": "2026-11-08"
+                },
+                {
+                  "key": "date_to",
+                  "value": "2026-11-08"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "200 OK",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/orders/period?date_from=2026-11-08&date_to=2026-11-08",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "orders",
+                    "period"
+                  ],
+                  "query": [
+                    {
+                      "key": "date_from",
+                      "value": "2026-11-08"
+                    },
+                    {
+                      "key": "date_to",
+                      "value": "2026-11-08"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"client_id\": 6,\n    \"price\": \"2400.00\",\n    \"status\": \"planned\",\n    \"notes\": \"Refrigerated cargo\",\n    \"id\": 5,\n    \"created_at\": \"2026-11-08T15:51:11.256999Z\"\n  }\n]"
+            }
+          ]
+        },
+        {
+          "name": "Create order: unknown client (404)",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/orders",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "orders"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"client_id\": 999999,\n  \"price\": \"10\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "name": "404 Not Found",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/orders",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "orders"
+                  ]
+                },
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"client_id\": 999999,\n  \"price\": \"10\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": \"Client 999999 not found\"\n}"
+            }
+          ]
+        },
+        {
+          "name": "Delete order",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/orders/{{order_id}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "orders",
+                "{{order_id}}"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "204 No Content",
+              "originalRequest": {
+                "method": "DELETE",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/orders/{{order_id}}",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "orders",
+                    "{{order_id}}"
+                  ]
+                }
+              },
+              "status": "No Content",
+              "code": 204,
+              "_postman_previewlanguage": "json",
+              "header": [],
+              "body": ""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Trips",
+      "item": [
+        {
+          "name": "Create trip",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/trips",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "trips"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"order_id\": {{order_id}},\n  \"vehicle_id\": {{vehicle_id}},\n  \"driver_ids\": [\n    {{driver_id}}\n  ],\n  \"origin\": \"Kyiv\",\n  \"destination\": \"Kharkiv\",\n  \"distance_km\": 480,\n  \"cargo_weight_kg\": 15000,\n  \"planned_start\": \"2026-11-12T07:00:00Z\",\n  \"planned_end\": \"2026-11-12T16:00:00Z\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "name": "201 Created",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/trips",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "trips"
+                  ]
+                },
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"order_id\": {{order_id}},\n  \"vehicle_id\": {{vehicle_id}},\n  \"driver_ids\": [\n    {{driver_id}}\n  ],\n  \"origin\": \"Kyiv\",\n  \"destination\": \"Kharkiv\",\n  \"distance_km\": 480,\n  \"cargo_weight_kg\": 15000,\n  \"planned_start\": \"2026-11-12T07:00:00Z\",\n  \"planned_end\": \"2026-11-12T16:00:00Z\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"origin\": \"Kyiv\",\n  \"destination\": \"Kharkiv\",\n  \"distance_km\": 480,\n  \"cargo_weight_kg\": 15000,\n  \"planned_start\": \"2026-11-12T07:00:00Z\",\n  \"planned_end\": \"2026-11-12T16:00:00Z\",\n  \"id\": 4,\n  \"order_id\": 5,\n  \"vehicle_id\": 6,\n  \"drivers\": [\n    {\n      \"full_name\": \"Taras Bondar\",\n      \"phone\": \"+380637778899\",\n      \"license_number\": \"KH778899\",\n      \"license_categories\": \"C,CE\",\n      \"experience_years\": 7,\n      \"id\": 5\n    }\n  ]\n}"
+            }
+          ],
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.collectionVariables.set(\"trip_id\", pm.response.json().id);"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "List trips",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/trips",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "trips"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "200 OK",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/trips",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "trips"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"origin\": \"Kyiv\",\n    \"destination\": \"Lviv\",\n    \"distance_km\": 540,\n    \"cargo_weight_kg\": 12000,\n    \"planned_start\": \"2026-10-28T15:49:22.357428Z\",\n    \"planned_end\": \"2026-10-29T00:49:22.357428Z\",\n    \"id\": 1,\n    \"order_id\": 1,\n    \"vehicle_id\": 1,\n    \"drivers\": [\n      {\n        \"full_name\": \"Ivan Petrenko\",\n        \"phone\": \"+380501112233\",\n        \"license_number\": \"AB123456\",\n        \"license_categories\": \"C,CE\",\n        \"experience_years\": 8,\n        \"id\": 1\n      }\n    ]\n  },\n  {\n    \"origin\": \"Lviv\",\n    \"destination\": \"Odesa\",\n    \"distance_km\": 790,\n    \"cargo_weight_kg\": 15000,\n    \"planned_start\": \"2026-11-08T09:49:22.357428Z\",\n    \"planned_end\": \"2026-11-08T23:49:22.357428Z\",\n    \"id\": 2,\n    \"order_id\": 2,\n    \"vehicle_id\": 2,\n    \"drivers\": [\n      {\n        \"full_name\": \"Ivan Petrenko\",\n        \"phone\": \"+380501112233\",\n        \"license_number\": \"AB123456\",\n        \"license_categories\": \"C,CE\",\n        \"experience_years\": 8,\n        \"id\": 1\n      },\n      {\n        \"full_name\": \"Andrii Melnyk\",\n        \"phone\": \"+380671230099\",\n        \"license_number\": \"EF112233\",\n        \"license_categories\": \"C,CE\",\n        \"experience_years\": 12,\n        \"id\": 3\n      }\n    ]\n  },\n  {\n    \"origin\": \"Kyiv\",\n    \"destination\": \"Kharkiv\",\n    \"distance_km\": 480,\n    \"cargo_weight_kg\": 15000,\n    \"planned_start\": \"2026-11-12T07:00:00Z\",\n    \"planned_end\": \"2026-11-12T16:00:00Z\",\n    \"id\": 4,\n    \"order_id\": 5,\n    \"vehicle_id\": 6,\n    \"drivers\": [\n      {\n        \"full_name\": \"Taras Bondar\",\n        \"phone\": \"+380637778899\",\n        \"license_number\": \"KH778899\",\n        \"license_categories\": \"C,CE\",\n        \"experience_years\": 7,\n        \"id\": 5\n      }\n    ]\n  }\n]"
+            }
+          ]
+        },
+        {
+          "name": "Get trip",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/trips/{{trip_id}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "trips",
+                "{{trip_id}}"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "200 OK",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/trips/{{trip_id}}",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "trips",
+                    "{{trip_id}}"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"origin\": \"Kyiv\",\n  \"destination\": \"Kharkiv\",\n  \"distance_km\": 480,\n  \"cargo_weight_kg\": 15000,\n  \"planned_start\": \"2026-11-12T07:00:00Z\",\n  \"planned_end\": \"2026-11-12T16:00:00Z\",\n  \"id\": 4,\n  \"order_id\": 5,\n  \"vehicle_id\": 6,\n  \"drivers\": [\n    {\n      \"full_name\": \"Taras Bondar\",\n      \"phone\": \"+380637778899\",\n      \"license_number\": \"KH778899\",\n      \"license_categories\": \"C,CE\",\n      \"experience_years\": 7,\n      \"id\": 5\n    }\n  ]\n}"
+            }
+          ]
+        },
+        {
+          "name": "Update trip",
+          "request": {
+            "method": "PATCH",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/trips/{{trip_id}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "trips",
+                "{{trip_id}}"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"destination\": \"Dnipro\",\n  \"distance_km\": 480\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "name": "200 OK",
+              "originalRequest": {
+                "method": "PATCH",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/trips/{{trip_id}}",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "trips",
+                    "{{trip_id}}"
+                  ]
+                },
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"destination\": \"Dnipro\",\n  \"distance_km\": 480\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"origin\": \"Kyiv\",\n  \"destination\": \"Dnipro\",\n  \"distance_km\": 480,\n  \"cargo_weight_kg\": 15000,\n  \"planned_start\": \"2026-11-12T07:00:00Z\",\n  \"planned_end\": \"2026-11-12T16:00:00Z\",\n  \"id\": 4,\n  \"order_id\": 5,\n  \"vehicle_id\": 6,\n  \"drivers\": [\n    {\n      \"full_name\": \"Taras Bondar\",\n      \"phone\": \"+380637778899\",\n      \"license_number\": \"KH778899\",\n      \"license_categories\": \"C,CE\",\n      \"experience_years\": 7,\n      \"id\": 5\n    }\n  ]\n}"
+            }
+          ]
+        },
+        {
+          "name": "Create trip: cargo over capacity (422)",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/trips",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "trips"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"order_id\": {{order_id}},\n  \"vehicle_id\": {{vehicle_id}},\n  \"origin\": \"A\",\n  \"destination\": \"B\",\n  \"distance_km\": 10,\n  \"cargo_weight_kg\": 50000,\n  \"planned_start\": \"2026-11-12T07:00:00Z\",\n  \"planned_end\": \"2026-11-12T16:00:00Z\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "name": "422 Unprocessable Content",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/trips",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "trips"
+                  ]
+                },
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"order_id\": {{order_id}},\n  \"vehicle_id\": {{vehicle_id}},\n  \"origin\": \"A\",\n  \"destination\": \"B\",\n  \"distance_km\": 10,\n  \"cargo_weight_kg\": 50000,\n  \"planned_start\": \"2026-11-12T07:00:00Z\",\n  \"planned_end\": \"2026-11-12T16:00:00Z\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unprocessable Content",
+              "code": 422,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": \"Cargo (50000 kg) exceeds vehicle capacity (21500 kg)\"\n}"
+            }
+          ]
+        },
+        {
+          "name": "Delete trip",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/trips/{{trip_id}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "trips",
+                "{{trip_id}}"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "204 No Content",
+              "originalRequest": {
+                "method": "DELETE",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/trips/{{trip_id}}",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "trips",
+                    "{{trip_id}}"
+                  ]
+                }
+              },
+              "status": "No Content",
+              "code": 204,
+              "_postman_previewlanguage": "json",
+              "header": [],
+              "body": ""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Trip logs",
+      "item": [
+        {
+          "name": "Create trip log",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/trip-logs",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "trip-logs"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"trip_id\": {{trip_id}},\n  \"driver_id\": {{driver_id}},\n  \"actual_start\": \"2026-11-12T07:10:00Z\",\n  \"actual_end\": \"2026-11-12T16:30:00Z\",\n  \"driver_comment\": \"Roadworks on the M03, 20 min delay\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "name": "201 Created",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/trip-logs",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "trip-logs"
+                  ]
+                },
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"trip_id\": {{trip_id}},\n  \"driver_id\": {{driver_id}},\n  \"actual_start\": \"2026-11-12T07:10:00Z\",\n  \"actual_end\": \"2026-11-12T16:30:00Z\",\n  \"driver_comment\": \"Roadworks on the M03, 20 min delay\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"trip_id\": 4,\n  \"driver_id\": 5,\n  \"actual_start\": \"2026-11-12T07:10:00Z\",\n  \"actual_end\": \"2026-11-12T16:30:00Z\",\n  \"driver_comment\": \"Roadworks on the M03, 20 min delay\",\n  \"id\": 4\n}"
+            }
+          ],
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.collectionVariables.set(\"log_id\", pm.response.json().id);"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "List trip logs",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/trip-logs?trip_id={{trip_id}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "trip-logs"
+              ],
+              "query": [
+                {
+                  "key": "trip_id",
+                  "value": "{{trip_id}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "200 OK",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/trip-logs?trip_id={{trip_id}}",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "trip-logs"
+                  ],
+                  "query": [
+                    {
+                      "key": "trip_id",
+                      "value": "{{trip_id}}"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"trip_id\": 4,\n    \"driver_id\": 5,\n    \"actual_start\": \"2026-11-12T07:10:00Z\",\n    \"actual_end\": \"2026-11-12T16:30:00Z\",\n    \"driver_comment\": \"Roadworks on the M03, 20 min delay\",\n    \"id\": 4\n  }\n]"
+            }
+          ]
+        },
+        {
+          "name": "Get trip log",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/trip-logs/{{log_id}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "trip-logs",
+                "{{log_id}}"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "200 OK",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/trip-logs/{{log_id}}",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "trip-logs",
+                    "{{log_id}}"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"trip_id\": 4,\n  \"driver_id\": 5,\n  \"actual_start\": \"2026-11-12T07:10:00Z\",\n  \"actual_end\": \"2026-11-12T16:30:00Z\",\n  \"driver_comment\": \"Roadworks on the M03, 20 min delay\",\n  \"id\": 4\n}"
+            }
+          ]
+        },
+        {
+          "name": "Update trip log",
+          "request": {
+            "method": "PATCH",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/trip-logs/{{log_id}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "trip-logs",
+                "{{log_id}}"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"driver_comment\": \"Roadworks on the M03, 20 min delay. Cargo delivered intact\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "name": "200 OK",
+              "originalRequest": {
+                "method": "PATCH",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/trip-logs/{{log_id}}",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "trip-logs",
+                    "{{log_id}}"
+                  ]
+                },
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"driver_comment\": \"Roadworks on the M03, 20 min delay. Cargo delivered intact\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"trip_id\": 4,\n  \"driver_id\": 5,\n  \"actual_start\": \"2026-11-12T07:10:00Z\",\n  \"actual_end\": \"2026-11-12T16:30:00Z\",\n  \"driver_comment\": \"Roadworks on the M03, 20 min delay. Cargo delivered intact\",\n  \"id\": 4\n}"
+            }
+          ]
+        },
+        {
+          "name": "Create trip log: end before start (422)",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/trip-logs",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "trip-logs"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"trip_id\": {{trip_id}},\n  \"driver_id\": {{driver_id}},\n  \"actual_start\": \"2026-11-12T10:00:00Z\",\n  \"actual_end\": \"2026-11-12T09:00:00Z\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "name": "422 Unprocessable Content",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/trip-logs",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "trip-logs"
+                  ]
+                },
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"trip_id\": {{trip_id}},\n  \"driver_id\": {{driver_id}},\n  \"actual_start\": \"2026-11-12T10:00:00Z\",\n  \"actual_end\": \"2026-11-12T09:00:00Z\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unprocessable Content",
+              "code": 422,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": [\n    {\n      \"type\": \"value_error\",\n      \"loc\": [\n        \"body\"\n      ],\n      \"msg\": \"Value error, actual_end must not be earlier than actual_start\",\n      \"input\": {\n        \"trip_id\": 4,\n        \"driver_id\": 5,\n        \"actual_start\": \"2026-11-12T10:00:00Z\",\n        \"actual_end\": \"2026-11-12T09:00:00Z\"\n      },\n      \"ctx\": {\n        \"error\": {}\n      }\n    }\n  ]\n}"
+            }
+          ]
+        },
+        {
+          "name": "Delete trip log",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/trip-logs/{{log_id}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "trip-logs",
+                "{{log_id}}"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "204 No Content",
+              "originalRequest": {
+                "method": "DELETE",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/trip-logs/{{log_id}}",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "trip-logs",
+                    "{{log_id}}"
+                  ]
+                }
+              },
+              "status": "No Content",
+              "code": 204,
+              "_postman_previewlanguage": "json",
+              "header": [],
+              "body": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
