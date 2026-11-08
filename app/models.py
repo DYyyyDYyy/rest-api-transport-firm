@@ -45,7 +45,7 @@ class Client(Base):
     address: Mapped[str | None] = mapped_column(String(255))
     created_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), server_default=func.now())
 
-    orders: Mapped[list["Order"]] = relationship(back_populates="client")
+    orders: Mapped[list["Order"]] = relationship(back_populates="client", passive_deletes=True)
 
 
 class Driver(Base):
@@ -60,9 +60,9 @@ class Driver(Base):
     experience_years: Mapped[int] = mapped_column(default=0)
 
     trips: Mapped[list["TripDetails"]] = relationship(
-        secondary=trip_drivers, back_populates="drivers"
+        secondary=trip_drivers, back_populates="drivers", passive_deletes=True
     )
-    logs: Mapped[list["TripLog"]] = relationship(back_populates="driver")
+    logs: Mapped[list["TripLog"]] = relationship(back_populates="driver", passive_deletes=True)
 
 
 class Vehicle(Base):
@@ -78,7 +78,7 @@ class Vehicle(Base):
     is_available: Mapped[bool] = mapped_column(default=True, server_default="true")
     unavailable_reason: Mapped[str | None] = mapped_column(String(255))
 
-    trips: Mapped[list["TripDetails"]] = relationship(back_populates="vehicle")
+    trips: Mapped[list["TripDetails"]] = relationship(back_populates="vehicle", passive_deletes=True)
 
 
 class Order(Base):

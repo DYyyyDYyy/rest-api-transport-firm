@@ -130,3 +130,12 @@ def test_orders_in_period(client, seed):
     assert [o["id"] for o in found] == [seed["order"]["id"]]
     assert client.get("/orders/period", params={"date_from": "2000-01-01", "date_to": "2000-01-31"}).json() == []
     assert client.get("/orders/period", params={"date_from": "2026-02-01", "date_to": "2026-01-01"}).status_code == 422
+
+
+def test_referenced_records_cannot_be_deleted(client, seed):
+    new_trip(client, seed)
+    response = client.delete(f"/clients/{seed['client']['id']}")
+    assert response.status_code == 409
+    assert "is referenced from table" in response.json()["detail"]
+    assert client.delete(f"/vehicles/{seed['vehicle']['id']}").status_code == 409
+    assert client.delete(f"/drivers/{seed['driver']['id']}").status_code == 409
