@@ -11,9 +11,7 @@ router = APIRouter(prefix="/clients", tags=["clients"])
 
 
 @router.get("", response_model=list[schemas.ClientRead])
-def list_clients(
-    skip: int = Query(0, ge=0), limit: int = Query(50, ge=1, le=200), db: Session = Depends(get_db)
-):
+def list_clients(skip: int = Query(0, ge=0), limit: int = Query(50, ge=1, le=200), db: Session = Depends(get_db)):
     return db.scalars(select(Client).order_by(Client.id).offset(skip).limit(limit)).all()
 
 

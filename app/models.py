@@ -127,9 +127,7 @@ class TripDetails(Base):
 
 class TripLog(Base):
     __tablename__ = "trip_logs"
-    __table_args__ = (
-        CheckConstraint("actual_end IS NULL OR actual_end >= actual_start", name="ck_trip_logs_period"),
-    )
+    __table_args__ = (CheckConstraint("actual_end IS NULL OR actual_end >= actual_start", name="ck_trip_logs_period"),)
 
     id: Mapped[int] = mapped_column(primary_key=True)
     trip_id: Mapped[int] = mapped_column(ForeignKey("trip_details.id", ondelete="CASCADE"))

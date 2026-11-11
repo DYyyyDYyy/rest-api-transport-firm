@@ -1,0 +1,17 @@
+[project]
+name = "rest-api-transport-firm"
+version = "1.0.0"
+requires-python = ">=3.12"
+
+[tool.ruff]
+line-length = 120
+target-version = "py312"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B"]
+# Depends()/Query() in argument defaults is the FastAPI idiom
+ignore = ["B008", "UP042", "UP047"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+filterwarnings = ["ignore::DeprecationWarning:fastapi.testclient"]

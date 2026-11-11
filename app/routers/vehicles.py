@@ -11,9 +11,7 @@ router = APIRouter(prefix="/vehicles", tags=["vehicles"])
 
 
 @router.get("", response_model=list[schemas.VehicleRead])
-def list_vehicles(
-    skip: int = Query(0, ge=0), limit: int = Query(50, ge=1, le=200), db: Session = Depends(get_db)
-):
+def list_vehicles(skip: int = Query(0, ge=0), limit: int = Query(50, ge=1, le=200), db: Session = Depends(get_db)):
     return db.scalars(select(Vehicle).order_by(Vehicle.id).offset(skip).limit(limit)).all()
 
 
@@ -24,9 +22,7 @@ def list_available_vehicles(db: Session = Depends(get_db)):
         TripDetails.order_id == Order.id,
         Order.status == OrderStatus.IN_PROGRESS,
     )
-    return db.scalars(
-        select(Vehicle).where(Vehicle.is_available.is_(True), ~on_trip).order_by(Vehicle.id)
-    ).all()
+    return db.scalars(select(Vehicle).where(Vehicle.is_available.is_(True), ~on_trip).order_by(Vehicle.id)).all()
 
 
 @router.post("", response_model=schemas.VehicleRead, status_code=status.HTTP_201_CREATED)

@@ -35,9 +35,7 @@ def orders_in_period(date_from: date, date_to: date, db: Session = Depends(get_d
     start = datetime.combine(date_from, time.min, tzinfo=UTC)
     end = datetime.combine(date_to + timedelta(days=1), time.min, tzinfo=UTC)
     return db.scalars(
-        select(Order)
-        .where(Order.created_at >= start, Order.created_at < end)
-        .order_by(Order.created_at)
+        select(Order).where(Order.created_at >= start, Order.created_at < end).order_by(Order.created_at)
     ).all()
 
 

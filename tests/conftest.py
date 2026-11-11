@@ -39,8 +39,22 @@ def make(client, path, payload):
 
 @pytest.fixture()
 def seed(client):
-    customer = make(client, "/clients", {"name": "Fresh Market LLC", "phone": "+380441234567", "email": "ops@freshmarket.ua"})
-    driver = make(client, "/drivers", {"full_name": "Ivan Petrenko", "phone": "+380501112233", "license_number": "AB123456", "license_categories": "C,CE", "experience_years": 8})
-    vehicle = make(client, "/vehicles", {"plate_number": "AA1234BB", "make": "MAN", "model": "TGX", "capacity_kg": 20000})
+    customer = make(
+        client, "/clients", {"name": "Fresh Market LLC", "phone": "+380441234567", "email": "ops@freshmarket.ua"}
+    )
+    driver = make(
+        client,
+        "/drivers",
+        {
+            "full_name": "Ivan Petrenko",
+            "phone": "+380501112233",
+            "license_number": "AB123456",
+            "license_categories": "C,CE",
+            "experience_years": 8,
+        },
+    )
+    vehicle = make(
+        client, "/vehicles", {"plate_number": "AA1234BB", "make": "MAN", "model": "TGX", "capacity_kg": 20000}
+    )
     order = make(client, "/orders", {"client_id": customer["id"], "price": "1850.50"})
     return {"client": customer, "driver": driver, "vehicle": vehicle, "order": order}

@@ -11,9 +11,7 @@ router = APIRouter(prefix="/drivers", tags=["drivers"])
 
 
 @router.get("", response_model=list[schemas.DriverRead])
-def list_drivers(
-    skip: int = Query(0, ge=0), limit: int = Query(50, ge=1, le=200), db: Session = Depends(get_db)
-):
+def list_drivers(skip: int = Query(0, ge=0), limit: int = Query(50, ge=1, le=200), db: Session = Depends(get_db)):
     return db.scalars(select(Driver).order_by(Driver.id).offset(skip).limit(limit)).all()
 
 

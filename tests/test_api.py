@@ -37,7 +37,10 @@ def test_duplicate_email_conflict(client):
 
 def test_validation_errors(client):
     assert client.post("/clients", json={"name": "A", "phone": "+380671234567", "email": "bad"}).status_code == 422
-    assert client.post("/vehicles", json={"plate_number": "X", "make": "M", "model": "T", "capacity_kg": 0}).status_code == 422
+    assert (
+        client.post("/vehicles", json={"plate_number": "X", "make": "M", "model": "T", "capacity_kg": 0}).status_code
+        == 422
+    )
 
 
 def test_client_with_orders_cannot_be_deleted(client, seed):
@@ -55,13 +58,17 @@ def test_trip_lifecycle_with_log_and_history(client, seed):
     trip = response.json()
     assert trip["drivers"][0]["id"] == seed["driver"]["id"]
 
-    log = make(client, "/trip-logs", {
-        "trip_id": trip["id"],
-        "driver_id": seed["driver"]["id"],
-        "actual_start": "2026-11-10T08:15:00Z",
-        "actual_end": "2026-11-10T17:40:00Z",
-        "driver_comment": "Traffic near Zhytomyr",
-    })
+    log = make(
+        client,
+        "/trip-logs",
+        {
+            "trip_id": trip["id"],
+            "driver_id": seed["driver"]["id"],
+            "actual_start": "2026-11-10T08:15:00Z",
+            "actual_end": "2026-11-10T17:40:00Z",
+            "driver_comment": "Traffic near Zhytomyr",
+        },
+    )
 
     history = client.get(f"/drivers/{seed['driver']['id']}/trips").json()
     assert len(history) == 1
@@ -88,30 +95,62 @@ def test_trip_period_validated(client, seed):
 
 
 def test_unavailable_vehicle_rejected(client, seed):
-    client.patch(f"/vehicles/{seed['vehicle']['id']}", json={"is_available": False, "unavailable_reason": "Engine repair"})
+    client.patch(
+        f"/vehicles/{seed['vehicle']['id']}", json={"is_available": False, "unavailable_reason": "Engine repair"}
+    )
     assert new_trip(client, seed).status_code == 409
 
 
 def test_log_requires_assigned_driver(client, seed):
     trip = new_trip(client, seed).json()
-    other = make(client, "/drivers", {"full_name": "Olena Koval", "phone": "+380509998877", "license_number": "CD654321", "license_categories": "B,C"})
-    response = client.post("/trip-logs", json={
-        "trip_id": trip["id"], "driver_id": other["id"], "actual_start": "2026-11-10T08:00:00Z",
-    })
+    other = make(
+        client,
+        "/drivers",
+        {
+            "full_name": "Olena Koval",
+            "phone": "+380509998877",
+            "license_number": "CD654321",
+            "license_categories": "B,C",
+        },
+    )
+    response = client.post(
+        "/trip-logs",
+        json={
+            "trip_id": trip["id"],
+            "driver_id": other["id"],
+            "actual_start": "2026-11-10T08:00:00Z",
+        },
+    )
     assert response.status_code == 409
 
 
 def test_log_end_before_start_rejected(client, seed):
     trip = new_trip(client, seed).json()
-    response = client.post("/trip-logs", json={
-        "trip_id": trip["id"], "driver_id": seed["driver"]["id"],
-        "actual_start": "2026-11-10T10:00:00Z", "actual_end": "2026-11-10T09:00:00Z",
-    })
+    response = client.post(
+        "/trip-logs",
+        json={
+            "trip_id": trip["id"],
+            "driver_id": seed["driver"]["id"],
+            "actual_start": "2026-11-10T10:00:00Z",
+            "actual_end": "2026-11-10T09:00:00Z",
+        },
+    )
     assert response.status_code == 422
 
 
 def test_available_vehicles(client, seed):
-    broken = make(client, "/vehicles", {"plate_number": "BB9999CC", "make": "Volvo", "model": "FH", "capacity_kg": 18000, "is_available": False, "unavailable_reason": "In service"})
+    broken = make(
+        client,
+        "/vehicles",
+        {
+            "plate_number": "BB9999CC",
+            "make": "Volvo",
+            "model": "FH",
+            "capacity_kg": 18000,
+            "is_available": False,
+            "unavailable_reason": "In service",
+        },
+    )
     busy = make(client, "/vehicles", {"plate_number": "CC5555DD", "make": "DAF", "model": "XF", "capacity_kg": 19000})
 
     ids = {v["id"] for v in client.get("/vehicles/available").json()}

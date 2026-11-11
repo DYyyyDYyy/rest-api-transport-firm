@@ -32,9 +32,7 @@ def check_vehicle(db: Session, vehicle_id: int, cargo_weight_kg: int, current_tr
 
 
 @router.get("", response_model=list[schemas.TripRead])
-def list_trips(
-    skip: int = Query(0, ge=0), limit: int = Query(50, ge=1, le=200), db: Session = Depends(get_db)
-):
+def list_trips(skip: int = Query(0, ge=0), limit: int = Query(50, ge=1, le=200), db: Session = Depends(get_db)):
     return db.scalars(select(TripDetails).order_by(TripDetails.id).offset(skip).limit(limit)).all()
 
 
