@@ -35,6 +35,13 @@ Additional queries:
 | `GET /orders/period?date_from=&date_to=` | orders created within the date range (UTC, inclusive) |
 | `GET /vehicles/available` | vehicles flagged available and not currently on an in-progress order |
 
+Health checks:
+
+| Endpoint | Description |
+|---|---|
+| `GET /health` | liveness: the process answers; does not touch the database |
+| `GET /health/ready` | readiness: also runs `SELECT 1`; `503` when the database is unreachable |
+
 ## Running locally
 
 ```bash
