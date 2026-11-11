@@ -1,8 +1,12 @@
 # Transport Firm REST API
 
+[![ci](https://github.com/DYyyyDYyy/rest-api-transport-firm/actions/workflows/ci.yml/badge.svg)](https://github.com/DYyyyDYyy/rest-api-transport-firm/actions/workflows/ci.yml)
+
 REST API for managing the operations of a freight carrier: clients, orders, drivers, vehicles, trip planning and driver trip logs.
 
-**Stack:** Python 3.12+, FastAPI, SQLAlchemy 2, Alembic, PostgreSQL, pytest.
+**Stack:** Python 3.12+, FastAPI, SQLAlchemy 2, Alembic, PostgreSQL 17, pytest, Docker, GitHub Actions.
+
+The same service is deployed by two other projects: [ansible-infra](https://github.com/DYyyyDYyy/ansible-infra) (rolling deploys to VMs behind nginx, gated on `/health/ready`) and [gitops-platform](https://github.com/DYyyyDYyy/gitops-platform) (Helm chart on Kubernetes, synced by Argo CD).
 
 ## Data model
 
@@ -42,7 +46,16 @@ Health checks:
 | `GET /health` | liveness: the process answers; does not touch the database |
 | `GET /health/ready` | readiness: also runs `SELECT 1`; `503` when the database is unreachable |
 
-## Running locally
+## Quick start (Docker)
+
+```bash
+docker compose up -d --build --wait   # db -> migrate (alembic upgrade head) -> api
+curl localhost:8000/health/ready
+```
+
+The image is a multi-stage build that runs as a non-root user, with a `HEALTHCHECK` on `/health/ready`. CI publishes it to `ghcr.io/dyyyydyyy/rest-api-transport-firm`.
+
+## Running locally without Docker for the API
 
 ```bash
 python -m venv .venv && source .venv/bin/activate
@@ -78,3 +91,16 @@ pytest
 ```
 
 Tests run against the database from `TEST_DATABASE_URL` and recreate its tables for every test.
+
+## CI
+
+[`.github/workflows/ci.yml`](.github/workflows/ci.yml) runs on every push and PR:
+
+| Job | What it checks |
+|---|---|
+| lint | `ruff check`, `ruff format --check` |
+| test | migrations up and down, then `pytest --cov` against a PostgreSQL 17 service container (about 90% coverage) |
+| compose | `docker compose up --wait`, then real HTTP requests to the running stack |
+| image | the container runs as uid 10001, Trivy scan (fails on fixable CRITICAL), push to GHCR from `main` |
+
+Dependabot keeps pip packages, GitHub Actions and the base image up to date.
