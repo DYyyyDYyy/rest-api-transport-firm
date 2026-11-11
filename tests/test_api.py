@@ -136,6 +136,6 @@ def test_referenced_records_cannot_be_deleted(client, seed):
     new_trip(client, seed)
     response = client.delete(f"/clients/{seed['client']['id']}")
     assert response.status_code == 409
-    assert "is referenced from table" in response.json()["detail"]
+    assert "referenced from table" in response.json()["detail"]
     assert client.delete(f"/vehicles/{seed['vehicle']['id']}").status_code == 409
     assert client.delete(f"/drivers/{seed['driver']['id']}").status_code == 409
